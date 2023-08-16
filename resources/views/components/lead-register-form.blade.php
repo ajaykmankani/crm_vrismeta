@@ -196,10 +196,18 @@
 
                                             // Check if the selected option is 'Run Credit Check'
                                             // Check if the selected option is 'Run Credit Check'
-                                            if (selectedValue === 'Run Credit Check'){
+                                            if (selectedValue === 'Run Credit Check' || selectedValue === 'Credit Check Done'){
                                                 $('#services').addClass('d-block').removeClass('d-none');
+
                                             }else{
                                                 $('#services').addClass('d-none');
+
+
+                                            }
+                                            if(selectedValue === 'Credit Check Done'){
+                                                $('#pass-fail').addClass('d-block').removeClass('d-none');
+                                            }else{
+$('#pass-fail').addClass('d-none');
                                             }
                                             if (selectedValue === 'Run Credit Check' || selectedValue === 'call back' || selectedValue === 'Credit Check Done') {
                                                 for (var field of requiredFields) {
@@ -231,6 +239,13 @@
                                     </div>
                                     <div class=" col-3">
                                         @livewire('text-component', ['security_answer', 'Security Answer'])
+                                    </div>
+                                    <div class=" col-3 d-none" id="pass-fail">
+                                        <b class="me-3">Credit Check</b>
+                                        <label class="form-radio-label ">Pass</label>
+                                        <input type="radio" name="credit_check[]" class="form-radio-input me-3" id="credit_check" value="pass">
+                                        <label class="form-radio-label ">Fail</label>
+                                        <input type="radio" name="credit_check[]" class="form-radio-input me-3" id="credit_check" value="fail">
                                     </div>
                                     <div class="col-12 d-none" id="services">
                                         @foreach ($categories as $category)
