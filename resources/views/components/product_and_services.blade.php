@@ -4,7 +4,8 @@
 
 
  @endphp
-<div class="row">
+
+     <div class="row">
  <div class=" col-1">
      <div class="input-group mb-3">
          <div class="    ">
@@ -56,7 +57,10 @@
      </div>
 
  @endfor
+
 </div>
+
+
  <script>
      function getProductName<?= $for ?>(product) {
          <?php

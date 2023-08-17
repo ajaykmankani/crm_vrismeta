@@ -32,6 +32,17 @@ return new class extends Migration
             $table->string('security_passcode')->nullable();
             $table->string('security_question')->nullable();
             $table->string('security_answer')->nullable();
+            $table->string('credit_check')->nullable();
+            $table->string('driving_license_number')->nullable();
+            $table->string('licanse_expiry_date')->nullable();
+            $table->string('driving_license_issuing_state')->nullable();
+            $table->string('state_id_number')->nullable();
+            $table->string('state_id_expiry_date')->nullable();
+            $table->string('state_id_issuing_state')->nullable();
+            $table->string('tax_id_number')->nullable();
+            $table->string('tax_id_expiry_date')->nullable();
+            $table->string('tax_id_issuing_state')->nullable();
+            $table->string('social_security_number')->nullable();
             $table->string('product')->nullable();
             $table->string('service')->nullable();
             $table->longText('comment')->nullable();

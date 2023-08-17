@@ -30,6 +30,16 @@ return new class extends Migration
             $table->string('current_issue')->nullable();
             $table->string('call_dispose')->nullable();
             $table->longText('comment')->nullable();
+            $table->string('driving_license_number')->nullable();
+            $table->string('licanse_expiry_date')->nullable();
+            $table->string('driving_license_issuing_state')->nullable();
+            $table->string('state_id_number')->nullable();
+            $table->string('state_id_expiry_date')->nullable();
+            $table->string('state_id_issuing_state')->nullable();
+            $table->string('tax_id_number')->nullable();
+            $table->string('tax_id_expiry_date')->nullable();
+            $table->string('tax_id_issuing_state')->nullable();
+            $table->string('social_security_number')->nullable();
             $table->string('product');
             $table->string('service');
             $table->string('order_confirmation_number');
