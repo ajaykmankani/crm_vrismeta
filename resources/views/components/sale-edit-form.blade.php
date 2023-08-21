@@ -3,6 +3,12 @@
         @csrf
         <div class="row">
             <input type="hidden" value="{{ $sale->id }}" name="sale_id">
+ <div class=" col-3">
+                <div class="input-group">
+                    <label class="input-group-text">Unique ID</label>
+                    <input readonly type="text" class="form-control" name="unique_id" @if($sale->unique_id) value="{{ $sale->unique_id }}" @else value="{{ Str::random(10) }}" @endif id="">
+                </div>
+            </div>
             <div class=" col-3">
                 @livewire('text-component-edit', [$sale, 'f_name', 'First Name'])
             </div>

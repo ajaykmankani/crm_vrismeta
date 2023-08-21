@@ -46,6 +46,7 @@
                                                             class="check-all">All</span></th>
                                                 <th>Status</th>
                                                 <th>Date</th>
+                                                <th>Unique ID</th>
                                                 <th>First Name</th>
                                                 <th>Middle Name</th>
                                                 <th>Last Name</th>
@@ -88,6 +89,7 @@
                                                     </td>
 
                                                     <td>{{ date('d-m-Y', strtotime($sale->date)) }}</td>
+                                                     <td style="font-weight: 600">{{ $sale->unique_id }}</td>
                                                     <td>{{ $sale->f_name }}</td>
                                                     <td>{{ $sale->m_name }}</td>
                                                     <td>{{ $sale->l_name }}</td>

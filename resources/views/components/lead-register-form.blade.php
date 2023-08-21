@@ -1,22 +1,28 @@
 <div>
     <style>
-                /* Increase the width of the modal */
-                .modal-dialog.modal-fullscreen {
-                    width: 100vw;
-                    /* Adjust this value as needed */
-                    max-width: none;
-                    /* Remove the default maximum width */
-                }
+        /* Increase the width of the modal */
+        .modal-dialog.modal-fullscreen {
+            width: 100vw;
+            /* Adjust this value as needed */
+            max-width: none;
+            /* Remove the default maximum width */
+        }
 
-                /* Reduce padding and margin for modal content */
-                .modal-content {
-                    padding: 15px;
-                    margin: 0;
-                }
-            </style>
+        /* Reduce padding and margin for modal content */
+        .modal-content {
+            padding: 15px;
+            margin: 0;
+        }
+    </style>
     <form action="{{ route('create_lead') }}" method="POST" class="form-validation pt-3" onsubmit="return validateForm()">
         @csrf
         <div class="row">
+            <div class=" col-3">
+                <div class="input-group">
+                    <label class="input-group-text">Unique ID</label>
+                    <input readonly type="text" class="form-control" name="unique_id" value="{{ Str::random(10) }}" id="">
+                </div>
+            </div>
             <div class=" col-3">
                 @livewire('text-component', ['f_name', 'Firts Name'])
             </div>
@@ -194,13 +200,13 @@
             <div class=" col-3">
                 @livewire('text-component', ['security_answer', 'Security Answer'])
             </div>
-             <div class="col-3 d-none" id="credit_check_info">
-                <x-credit_check_info/>
+            <div class="col-3 d-none" id="credit_check_info">
+                <x-credit_check_info />
             </div>
             <div class=" col-3 d-none" id="pass-fail">
                 <b class="me-3">Credit Check Status</b>
                 <label class="form-radio-label ">Pass</label>
-                <input type="radio"  class="me-3" id="credit_check" name="credit_check" value="pass">
+                <input type="radio" class="me-3" id="credit_check" name="credit_check" value="pass">
                 <label class="form-radio-label ">Fail</label>
                 <input type="radio" class="me-3" id="credit_check" name="credit_check" value="fail">
             </div>
@@ -363,72 +369,75 @@
 </div>
 
 <script>
-                function validateForm() {
-                    var selectElement = document.getElementById('call_dispose');
-                    var selectedValue = selectElement.value;
+    function validateForm() {
+        var selectElement = document.getElementById('call_dispose');
+        var selectedValue = selectElement.value;
 
-                    if (selectedValue === '' || selectedValue === 'Call Dispose') {
-                        alert('Please select a Call Dispose before submitting the form.');
-                        return false;
-                    }
+        if (selectedValue === '' || selectedValue === 'Call Dispose') {
+            alert('Please select a Call Dispose before submitting the form.');
+            return false;
+        }
 
-                    // Form submission logic (if needed) goes here...
+        // Form submission logic (if needed) goes here...
 
-                    return true; // Return true to allow form submission
-                }
+        return true; // Return true to allow form submission
+    }
 
-                function updateFieldsValidation() {
-                    var selectElement = document.getElementById('call_dispose');
-                    var selectedValue = selectElement.value;
-                    var requiredFields = [
-                        'f_name',
-                        'l_name',
-                        'm_name',
-                        'phone',
-                        'alt_phone',
-                        'email',
-                        'address_1',
-                        'address_2',
-                        'city',
-                        'state',
-                        'zip',
-                        'current_service_provider',
-                        'current_service',
-                        'current_issue'
-                    ];
+    function updateFieldsValidation() {
+        var selectElement = document.getElementById('call_dispose');
+        var selectedValue = selectElement.value;
+        var requiredFields = [
+            'f_name',
+            'l_name',
+            'm_name',
+            'phone',
+            'alt_phone',
+            'email',
+            'address_1',
+            'address_2',
+            'city',
+            'state',
+            'zip',
+            'current_service_provider',
+            'current_service',
+            'current_issue'
+        ];
 
-                    // Check if the selected option is 'Run Credit Check'
-                    // Check if the selected option is 'Run Credit Check'
-                    if (selectedValue === 'Run Credit Check' || selectedValue === 'Credit Check Done' || selectedValue === 'Verification Done' || selectedValue === 'Run Verification') {
-                        $('#services').addClass('d-block').removeClass('d-none');
-                    } else {
-                        $('#services').addClass('d-none');
-                    }
+        // Check if the selected option is 'Run Credit Check'
+        // Check if the selected option is 'Run Credit Check'
+        if (selectedValue === 'Run Credit Check' || selectedValue === 'Credit Check Done' || selectedValue ===
+            'Verification Done' || selectedValue === 'Run Verification') {
+            $('#services').addClass('d-block').removeClass('d-none');
+        } else {
+            $('#services').addClass('d-none');
+        }
 
-                    if (selectedValue === 'Credit Check Done' || selectedValue === 'Run Credit Check' || selectedValue === 'Verification Done' || selectedValue === 'Run Verification') {
-                        $('#credit_check_info').addClass('d-block').removeClass('d-none');
-                    } else {
-                        $('#credit_check_info').addClass('d-none');
-                    }
+        if (selectedValue === 'Credit Check Done' || selectedValue === 'Run Credit Check' || selectedValue ===
+            'Verification Done' || selectedValue === 'Run Verification') {
+            $('#credit_check_info').addClass('d-block').removeClass('d-none');
+        } else {
+            $('#credit_check_info').addClass('d-none');
+        }
 
-                    if (selectedValue === 'Credit Check Done' || selectedValue === 'Verification Done' || selectedValue === 'Run Verification') {
-                        $('#pass-fail').addClass('d-block').removeClass('d-none');
-                    } else {
-                        $('#pass-fail').addClass('d-none');
-                    }
+        if (selectedValue === 'Credit Check Done' || selectedValue === 'Verification Done' || selectedValue ===
+            'Run Verification') {
+            $('#pass-fail').addClass('d-block').removeClass('d-none');
+        } else {
+            $('#pass-fail').addClass('d-none');
+        }
 
-                    if (selectedValue === 'Run Credit Check' || selectedValue === 'call back' || selectedValue ===
-                        'Credit Check Done') {
-                        for (var field of requiredFields) {
-                            document.getElementById(field).setAttribute('required', 'true');
+        if (selectedValue === 'Run Credit Check' || selectedValue === 'call back' || selectedValue ===
+            'Credit Check Done') {
+            for (var field of requiredFields) {
+                document.getElementById(field).setAttribute('required', 'true');
 
-                        }
-                    } else {
-                        for (var field of requiredFields) {
-                            document.getElementById(field).removeAttribute('required');
+            }
+        } else {
+            for (var field of requiredFields) {
+                document.getElementById(field).removeAttribute('required');
 
-                        }
-                    }
+            }
+        }
 
-                }
-            </script>
+    }
+</script>

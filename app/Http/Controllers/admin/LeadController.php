@@ -85,8 +85,8 @@ class LeadController extends Controller
 
         if ($request->card_number != null) {
             $sale = new Sale;
-            $sale->date = date("Y-m-d");
-            $sale->unique_id = rand(0, 9999999);
+            $sale->date = Carbon::now();
+            $sale->unique_id = $request->unique_id;
             $sale->f_name = $request->f_name;
             $sale->m_name = $request->m_name;
             $sale->l_name = $request->l_name;
@@ -115,8 +115,11 @@ class LeadController extends Controller
             $sale->tax_id_issuing_state = $request->tax_id_issuing_state;
             $sale->social_security_number = $request->social_security_number;
             $sale->comment = $request->comment;
-            $sale->product = http_build_query($request->product, '', ', ');
-            $sale->service = http_build_query($request->service, '', ', ');
+            if ($request->product != null) {
+                $sale->product = http_build_query($request->product, '', ', ');
+            } elseif ($request->service != null) {
+                $sale->service = http_build_query($request->service, '', ', ');
+            }
             $sale->order_confirmation_number = $request->order_confirmation_number;
             $sale->reference_number = $request->reference_number;
             $sale->monthly_bill = $request->monthly_bill;
@@ -147,8 +150,8 @@ class LeadController extends Controller
 
 
             $lead = new Lead;
-            $lead->date = date("Y-m-d");
-            $lead->unique_id = rand(0, 9999999);
+            $lead->date = Carbon::now();
+            $lead->unique_id = $request->unique_id;
             $lead->f_name = $request->f_name;
             $lead->m_name = $request->m_name;
             $lead->l_name = $request->l_name;
@@ -167,8 +170,11 @@ class LeadController extends Controller
             $lead->security_passcode = $request->security_passcode;
             $lead->security_question = $request->security_question;
             $lead->security_answer = $request->security_answer;
-            $lead->product = http_build_query($request->product, '', ', ');
-            $lead->service = http_build_query($request->service, '', ', ');
+           if ($request->product != null) {
+                $lead->product = http_build_query($request->product, '', ', ');
+            } elseif ($request->service != null) {
+                $lead->service = http_build_query($request->service, '', ', ');
+            }
             $lead->comment = $request->comment;
             $lead->mode_of_cc = $request->mode_of_cc;
             $lead->driving_license_number = $request->driving_license_number;
@@ -237,7 +243,8 @@ class LeadController extends Controller
 
         if ($request->card_number != null) {
             $sale = new Sale;
-            $sale->date = date("Y-m-d");
+            $sale->date = Carbon::now();
+            $sale->unique_id = $request->unique_id;
             $sale->f_name = $request->f_name;
             $sale->m_name = $request->m_name;
             $sale->l_name = $request->l_name;
@@ -306,7 +313,8 @@ class LeadController extends Controller
             $lead = Lead::find($lead_id);
 
 
-            $lead->date = $request->date;
+
+            $lead->unique_id = $request->unique_id;
             $lead->f_name = $request->f_name;
             $lead->m_name = $request->m_name;
             $lead->l_name = $request->l_name;
@@ -325,8 +333,11 @@ class LeadController extends Controller
             $lead->security_passcode = $request->security_passcode;
             $lead->security_question = $request->security_question;
             $lead->security_answer = $request->security_answer;
-            $lead->product = http_build_query($request->product, '', ', ');
-            $lead->service = http_build_query($request->service, '', ', ');
+            if ($request->product != null) {
+                $lead->product = http_build_query($request->product, '', ', ');
+            } elseif ($request->service != null) {
+                $lead->service = http_build_query($request->service, '', ', ');
+            }
             $lead->comment = $request->comment;
             $lead->mode_of_cc = $request->mode_of_cc;
             $lead->driving_license_number = $request->driving_license_number;

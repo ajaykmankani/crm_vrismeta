@@ -130,7 +130,7 @@ class SaleController extends Controller
 
 
 
-
+        $sale->unique_id = $request->unique_id;
         $sale->f_name = $request->f_name;
         $sale->m_name = $request->m_name;
         $sale->l_name = $request->l_name;

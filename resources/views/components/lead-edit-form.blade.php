@@ -5,6 +5,12 @@
         <div class="row">
             <input type="hidden" value="{{ $lead->id }}" name="lead_id">
             <div class=" col-3">
+                <div class="input-group">
+                    <label class="input-group-text">Unique ID</label>
+                    <input readonly type="text" class="form-control" name="unique_id" @if($lead->unique_id) value="{{ $lead->unique_id }}" @else value="{{ Str::random(10) }}" @endif id="">
+                </div>
+            </div>
+            <div class=" col-3">
                 @livewire('text-component-edit', [$lead, 'f_name', 'First Name'])
             </div>
             <div class=" col-3">
