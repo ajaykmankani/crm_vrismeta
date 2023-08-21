@@ -17,6 +17,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/public/offer_letters
 tests.zip
 vendor.zip
 vendor(2).zip
