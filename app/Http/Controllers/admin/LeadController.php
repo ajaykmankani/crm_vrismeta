@@ -104,7 +104,7 @@ class LeadController extends Controller
             $sale->order_number = $request->order_number;
             $sale->driving_license_number = $request->driving_license_number;
             $sale->licanse_expiry_date = $request->licanse_expiry_date;
-            $sale->verification_mode = $request->verification_mode;
+            $sale->mode_of_cc = $request->mode_of_cc;
             $sale->driving_license_issuing_state = $request->driving_license_issuing_state;
             $sale->state_id_number = $request->state_id_number;
             $sale->state_id_expiry_date = $request->state_id_expiry_date;
@@ -169,7 +169,7 @@ class LeadController extends Controller
             $lead->product = http_build_query($request->product, '', ', ');
             $lead->service = http_build_query($request->service, '', ', ');
             $lead->comment = $request->comment;
-            $lead->verification_mode = $request->verification_mode;
+            $lead->mode_of_cc = $request->mode_of_cc;
             $lead->driving_license_number = $request->driving_license_number;
             $lead->licanse_expiry_date = $request->licanse_expiry_date;
             $lead->driving_license_issuing_state = $request->driving_license_issuing_state;
@@ -180,6 +180,7 @@ class LeadController extends Controller
             $lead->tax_id_expiry_date = $request->tax_id_expiry_date;
             $lead->tax_id_issuing_state = $request->tax_id_issuing_state;
             $lead->social_security_number = $request->social_security_number;
+            $lead->credit_check = $request->credit_check;
             $lead->agent_name = $request->agent_name;
             $lead->user_name = Auth::user()->name;
             if ($lead->save()) {
@@ -233,7 +234,6 @@ class LeadController extends Controller
     public function update(Request $request)
     {
 
-
         if ($request->card_number != null) {
             $sale = new Sale;
             $sale->date = date("Y-m-d");
@@ -254,7 +254,7 @@ class LeadController extends Controller
             $sale->call_dispose = $request->call_dispose;
             $sale->order_number = $request->order_number;
             $sale->comment = $request->comment;
-            $sale->verification_mode = $request->verification_mode;
+            $sale->mode_of_cc = $request->mode_of_cc;
             $sale->driving_license_number = $request->driving_license_number;
             $sale->licanse_expiry_date = $request->licanse_expiry_date;
             $sale->driving_license_issuing_state = $request->driving_license_issuing_state;
@@ -328,7 +328,7 @@ class LeadController extends Controller
             $lead->product = http_build_query($request->product, '', ', ');
             $lead->service = http_build_query($request->service, '', ', ');
             $lead->comment = $request->comment;
-            $lead->verification_mode = $request->verification_mode;
+            $lead->mode_of_cc = $request->mode_of_cc;
             $lead->driving_license_number = $request->driving_license_number;
             $lead->licanse_expiry_date = $request->licanse_expiry_date;
             $lead->driving_license_issuing_state = $request->driving_license_issuing_state;
@@ -339,6 +339,7 @@ class LeadController extends Controller
             $lead->tax_id_expiry_date = $request->tax_id_expiry_date;
             $lead->tax_id_issuing_state = $request->tax_id_issuing_state;
             $lead->social_security_number = $request->social_security_number;
+            $lead->credit_check = $request->credit_check;
             $lead->agent_name = $request->agent_name;
 
             $lead->save();

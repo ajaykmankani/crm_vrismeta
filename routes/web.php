@@ -76,7 +76,7 @@ Route::group(['middleware' => [Authenticate::class]], function () {
     Route::post('lead_delete', [LeadController::class, 'destroy'])->name('lead_delete');
     Route::post('lead_delete_multiple', [LeadController::class, 'destroy_multiple'])->name('lead_delete_multiple');
     Route::post('lead_update', [LeadController::class, 'update'])->name('lead_update');
-    Route::post('lead_edit', [LeadController::class, 'edit'])->name('lead_edit');
+    Route::post('lead_edit', [LeadController::class, 'update'])->name('lead_edit');
     Route::get('/download-csv', [LeadController::class, 'download_csv'])->name('download-csv');
     Route::get('lead_edit_2/{id}', [LeadController::class, 'edit_2'])->name('lead_edit_2');
     // Route::post('/lead-form', LeadForm::class);

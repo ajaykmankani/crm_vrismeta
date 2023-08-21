@@ -1,7 +1,7 @@
 <div>
     <div class="input-group mb-3">
         <span style="color:black" class="input-group-text">CC Method</span>
-        <select class="form-control" name="creditCheck mode" id="creditCheck_mode" onchange="creditCheckInfo()">
+        <select class="form-control" name="mode_of_cc" id="creditCheck_mode" onchange="creditCheckInfo()">
             <option selected disabled>Select Credit Check Method</option>
             <option value="social security number">Social Security Number</option>
             <option value="driving license">Driving License</option>

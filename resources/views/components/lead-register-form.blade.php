@@ -200,7 +200,7 @@
             <div class=" col-3 d-none" id="pass-fail">
                 <b class="me-3">Credit Check Status</b>
                 <label class="form-radio-label ">Pass</label>
-                <input type="radio" class="me-3" id="credit_check" name="credit_check" value="pass">
+                <input type="radio"  class="me-3" id="credit_check" name="credit_check" value="pass">
                 <label class="form-radio-label ">Fail</label>
                 <input type="radio" class="me-3" id="credit_check" name="credit_check" value="fail">
             </div>
@@ -287,14 +287,14 @@
 
 
 
-                                <div class=" col-3">
+                                {{-- <div class=" col-3">
                                     @livewire('text-component', ['credit_check', 'Credit Check'])
-                                </div>
+                                </div> --}}
 
 
-                                <div class=" col-3">
+                                {{-- <div class=" col-3">
                                     @livewire('text-component', ['mode_of_cc', 'Mode of CC'])
-                                </div>
+                                </div> --}}
 
 
                                 <div class=" col-3">

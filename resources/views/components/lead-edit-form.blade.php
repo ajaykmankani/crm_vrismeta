@@ -193,9 +193,9 @@
             <div class=" col-3 d-none" id="pass-fail">
                 <b class="me-3">Credit Check Status</b>
                 <label class="form-radio-label ">Pass</label>
-                <input type="radio" class="me-3" id="credit_check" name="credit_check" value="pass">
+                <input type="radio" class="me-3" @if($lead->credit_check == 'pass') checked @endif  id="credit_check" name="credit_check" value="pass" >
                 <label class="form-radio-label ">Fail</label>
-                <input type="radio" class="me-3" id="credit_check" name="credit_check" value="fail">
+                <input type="radio" class="me-3" @if($lead->credit_check == 'fail') checked @endif id="credit_check" name="credit_check" value="fail">
             </div>
 
 
@@ -308,14 +308,14 @@
 
 
 
-                                <div class=" col-3">
+                                {{-- <div class=" col-3">
                                     @livewire('text-component-edit', [$lead, 'credit_check', 'Credit Check'])
-                                </div>
+                                </div> --}}
 
 
-                                <div class=" col-3">
+                                {{-- <div class=" col-3">
                                     @livewire('text-component-edit', [$lead, 'mode_of_cc', 'Mode of CC'])
-                                </div>
+                                </div> --}}
 
 
                                 <div class=" col-3">
