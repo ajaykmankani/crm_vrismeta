@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('leads', function (Blueprint $table) {
             $table->id();
             $table->string('date')->nullable();
+            $table->string('unique_id')->nullable();
             $table->string('f_name')->nullable();
             $table->string('m_name')->nullable();
             $table->string('l_name')->nullable();
@@ -34,7 +35,7 @@ return new class extends Migration
             $table->string('security_answer')->nullable();
             $table->string('credit_check')->nullable();
             $table->string('driving_license_number')->nullable();
-            $table->string('licanse_expiry_date')->nullable();
+            $table->string('license_expiry_date')->nullable();
             $table->string('driving_license_issuing_state')->nullable();
             $table->string('state_id_number')->nullable();
             $table->string('state_id_expiry_date')->nullable();

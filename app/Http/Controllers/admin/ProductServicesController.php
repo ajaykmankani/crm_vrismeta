@@ -51,7 +51,7 @@ class ProductServicesController extends Controller
     public function store_service(Request $request)
     {
         $request->validate([
-            'product' => 'required | unique:Services',
+            'product' => 'required | unique:services',
             'services' => 'required',
         ]);
 

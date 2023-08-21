@@ -54,6 +54,7 @@
                                                              class="check-all">All</span></th>
                                             <th>Call Dispose</th>
                                             <th>Date</th>
+                                            <th>Unique ID</th>
                                             <th>First Name</th>
                                             <th>Middle Name</th>
                                             <th>Last Name</th>
@@ -93,6 +94,7 @@
                                                     </label>
                                                 </td>
                                                 <td>{{ date('d-m-Y', strtotime($lead->date)) }}</td>
+                                                <td style="font-weight: 600">{{ $lead->unique_id }}</td>
                                                 <td>{{ $lead->f_name }}</td>
                                                 <td>{{ $lead->m_name }}</td>
                                                 <td>{{ $lead->l_name }}</td>

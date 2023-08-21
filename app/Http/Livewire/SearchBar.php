@@ -22,7 +22,8 @@ class SearchBar extends Component
 
         // Search in lead_database
         $leadResults = Lead::where(function ($query) {
-            $query->where('f_name', 'like', '%' . $this->query . '%')
+            $query->where('unique_id', 'like', '%' . $this->query . '%')
+                ->orWhere('f_name', 'like', '%' . $this->query . '%')
                 ->orWhere('m_name', 'like', '%' . $this->query . '%')
                 ->orWhere('l_name', 'like', '%' . $this->query . '%')
                 ->orWhere('phone', 'like', '%' . $this->query . '%')
@@ -37,7 +38,8 @@ class SearchBar extends Component
 
         // Search in sale_database
         $saleResults = Sale::where(function ($query) {
-            $query->where('f_name', 'like', '%' . $this->query . '%')
+            $query->where('unique_id', 'like', '%' . $this->query . '%')
+                ->orWhere('f_name', 'like', '%' . $this->query . '%')
                 ->orWhere('m_name', 'like', '%' . $this->query . '%')
                 ->orWhere('l_name', 'like', '%' . $this->query . '%')
                 ->orWhere('phone', 'like', '%' . $this->query . '%')

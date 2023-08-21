@@ -333,9 +333,9 @@
                                 </div>
 
 
-                                <div class=" col-3">
+                                {{-- <div class=" col-3">
                                     @livewire('text-component-edit', [$lead, 'ssn', 'Social Security Number'])
-                                </div>
+                                </div> --}}
 
 
                                 <div class=" col-3">
@@ -349,7 +349,7 @@
 
 
                                 <div class=" col-3">
-                                    @livewire('text-component-edit', [$lead, 'xp', 'XP'])
+                                    @livewire('text-component-edit', [$lead, 'expiry', 'Expiry'])
                                 </div>
 
 

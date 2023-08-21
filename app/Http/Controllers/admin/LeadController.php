@@ -86,6 +86,7 @@ class LeadController extends Controller
         if ($request->card_number != null) {
             $sale = new Sale;
             $sale->date = date("Y-m-d");
+            $sale->unique_id = rand(0, 9999999);
             $sale->f_name = $request->f_name;
             $sale->m_name = $request->m_name;
             $sale->l_name = $request->l_name;
@@ -129,10 +130,9 @@ class LeadController extends Controller
             $sale->mode_of_payment = $request->mode_of_payment;
             $sale->toll_free_number = $request->toll_free_number;
             $sale->dob = $request->dob;
-            $sale->ssn = $request->ssn;
             $sale->card_number = $request->card_number;
             $sale->cvv = $request->cvv;
-            $sale->xp = $request->xp;
+            $sale->expiry = $request->expiry;
             $sale->agent_name = $request->agent_name;
             $sale->user_name = Auth::user()->name;
             if ($sale->save()) {
@@ -148,6 +148,7 @@ class LeadController extends Controller
 
             $lead = new Lead;
             $lead->date = date("Y-m-d");
+            $lead->unique_id = rand(0, 9999999);
             $lead->f_name = $request->f_name;
             $lead->m_name = $request->m_name;
             $lead->l_name = $request->l_name;
@@ -279,10 +280,9 @@ class LeadController extends Controller
             $sale->mode_of_payment = $request->mode_of_payment;
             $sale->toll_free_number = $request->toll_free_number;
             $sale->dob = $request->dob;
-            $sale->ssn = $request->ssn;
             $sale->card_number = $request->card_number;
             $sale->cvv = $request->cvv;
-            $sale->xp = $request->xp;
+            $sale->expiry = $request->expiry;
             $sale->agent_name = $request->agent_name;
             $sale->user_name = Auth::user()->name;
             if ($sale->save()) {

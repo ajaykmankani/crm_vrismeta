@@ -7,12 +7,14 @@
                     @if (Auth::user()->name == $result['user_name'])
                         <a href="#" wire:click.prevent="edit('{{ $result['type'] }}', {{ $result['id'] }})"
                             class="list-group-item list-group-item-action">
+                            <b>Unique ID:</b> <span style="color: red">{{ $result['unique_id'] }}</span>
                             <b>Name:</b> {{ $result['f_name'] }} {{ $result['m_name'] }} {{ $result['l_name'] }}
                             <b>Phone:</b> {{ $result['phone'] }} {{ $result['alt_phone'] }}
                             <b>Agent Name:</b> {{ $result['user_name'] }}
                         </a>
                     @else
                         <div class="list-group-item list-group-item-action">
+                            <b>Unique ID:</b> <span style="color: red">{{ $result['unique_id'] }}</span>
                             <b>Name:</b> {{ $result['f_name'] }} {{ $result['m_name'] }} {{ $result['l_name'] }}
                             <b>Phone:</b> {{ $result['phone'] }} {{ $result['alt_phone'] }}
                             <b>Agent Name:</b> {{ $result['user_name'] }}
@@ -24,12 +26,14 @@
                     @if (Auth::user()->name == $result['user_name'])
                         <a href="#" wire:click.prevent="edit('{{ $result['type'] }}', {{ $result['id'] }})"
                             class="list-group-item list-group-item-action">
+                            <b>Unique ID:</b> <span style="color: red">{{ $result['unique_id'] }}</span style="color: red">
                             <b>Name:</b> {{ $result['f_name'] }} {{ $result['m_name'] }} {{ $result['l_name'] }}
                             <b>Phone:</b> {{ $result['phone'] }} {{ $result['alt_phone'] }}
                             <b>Agent Name:</b> {{ $result['user_name'] }}
                         </a>
                     @else
                         <div class="list-group-item list-group-item-action">
+                            <b>Unique ID:</b> <span style="color: red">{{ $result['unique_id'] }}</span>
                             <b>Name:</b> {{ $result['f_name'] }} {{ $result['m_name'] }} {{ $result['l_name'] }}
                             <b>Phone:</b> {{ $result['phone'] }} {{ $result['alt_phone'] }}
                             <b>Agent Name:</b> {{ $result['user_name'] }}
