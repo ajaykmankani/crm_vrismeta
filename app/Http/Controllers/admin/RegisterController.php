@@ -41,7 +41,7 @@ class RegisterController extends Controller
     public function userRegisterPage()
     {
         $roles = Role::all()->pluck('name', 'id');
-        return view('admin.user_register', ['roles' => $roles]);
+        return view('admin.user.user_register', ['roles' => $roles]);
     }
     public function userRegister(AdminRequest $request)
     {

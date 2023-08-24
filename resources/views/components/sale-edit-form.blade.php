@@ -3,10 +3,12 @@
         @csrf
         <div class="row">
             <input type="hidden" value="{{ $sale->id }}" name="sale_id">
- <div class=" col-3">
+            <div class=" col-3">
                 <div class="input-group">
                     <label class="input-group-text">Unique ID</label>
-                    <input readonly type="text" class="form-control" name="unique_id" @if($sale->unique_id) value="{{ $sale->unique_id }}" @else value="{{ Str::random(10) }}" @endif id="">
+                    <input readonly type="text" class="form-control" name="unique_id"
+                        @if ($sale->unique_id) value="{{ $sale->unique_id }}" @else value="vris{{ rand(000000, 999999) }}" @endif
+                        id="">
                 </div>
             </div>
             <div class=" col-3">
@@ -310,7 +312,7 @@
 
 
 
-{{--
+                                {{--
                                 <div class=" col-3">
                                     @livewire('text-component-edit', [$sale, 'credit_check', 'Credit Check'])
                                 </div>
@@ -413,10 +415,14 @@
             'address_2',
             'city',
             'state',
-            'zip',
+            'zip_code',
             'current_service_provider',
             'current_service',
-            'current_issue'
+            'current_issue',
+            'security_passcode',
+            'security_question',
+            'security_answer',
+            'mode_of_cc'
         ];
 
         // Check if the selected option is 'Run Credit Check'

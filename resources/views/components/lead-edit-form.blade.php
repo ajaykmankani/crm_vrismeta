@@ -7,7 +7,9 @@
             <div class=" col-3">
                 <div class="input-group">
                     <label class="input-group-text">Unique ID</label>
-                    <input readonly type="text" class="form-control" name="unique_id" @if($lead->unique_id) value="{{ $lead->unique_id }}" @else value="{{ Str::random(10) }}" @endif id="">
+                    <input readonly type="text" class="form-control" name="unique_id"
+                        @if ($lead->unique_id) value="{{ $lead->unique_id }}" @else value="vris{{ rand(000000, 999999) }}" @endif
+                        id="">
                 </div>
             </div>
             <div class=" col-3">
@@ -199,9 +201,11 @@
             <div class=" col-3 d-none" id="pass-fail">
                 <b class="me-3">Credit Check Status</b>
                 <label class="form-radio-label ">Pass</label>
-                <input type="radio" class="me-3" @if($lead->credit_check == 'pass') checked @endif  id="credit_check" name="credit_check" value="pass" >
+                <input type="radio" class="me-3" @if ($lead->credit_check == 'pass') checked @endif id="credit_check"
+                    name="credit_check" value="pass">
                 <label class="form-radio-label ">Fail</label>
-                <input type="radio" class="me-3" @if($lead->credit_check == 'fail') checked @endif id="credit_check" name="credit_check" value="fail">
+                <input type="radio" class="me-3" @if ($lead->credit_check == 'fail') checked @endif id="credit_check"
+                    name="credit_check" value="fail">
             </div>
 
 
@@ -419,13 +423,16 @@
             'address_2',
             'city',
             'state',
-            'zip',
+            'zip_code',
             'current_service_provider',
             'current_service',
-            'current_issue'
+            'current_issue',
+            'security_passcode',
+            'security_question',
+            'security_answer',
+            'mode_of_cc'
         ];
 
-        // Check if the selected option is 'Run Credit Check'
         // Check if the selected option is 'Run Credit Check'
         if (selectedValue === 'Run Credit Check' || selectedValue === 'Credit Check Done' || selectedValue ===
             'Verification Done' || selectedValue === 'Run Verification') {
@@ -434,13 +441,15 @@
             $('#services').addClass('d-none');
         }
 
-        if (selectedValue === 'Credit Check Done' || selectedValue === 'Run Credit Check' || selectedValue === 'Verification Done' || selectedValue === 'Run Verification') {
+        if (selectedValue === 'Credit Check Done' || selectedValue === 'Run Credit Check' || selectedValue ===
+            'Verification Done' || selectedValue === 'Run Verification') {
             $('#credit_check_info').addClass('d-block').removeClass('d-none');
         } else {
             $('#credit_check_info').addClass('d-none');
         }
 
-        if (selectedValue === 'Credit Check Done' || selectedValue === 'Verification Done' || selectedValue === 'Run Verification') {
+        if (selectedValue === 'Credit Check Done' || selectedValue === 'Verification Done' || selectedValue ===
+            'Run Verification') {
             $('#pass-fail').addClass('d-block').removeClass('d-none');
         } else {
             $('#pass-fail').addClass('d-none');
@@ -450,12 +459,10 @@
             'Credit Check Done') {
             for (var field of requiredFields) {
                 document.getElementById(field).setAttribute('required', 'true');
-
             }
         } else {
             for (var field of requiredFields) {
                 document.getElementById(field).removeAttribute('required');
-
             }
         }
 

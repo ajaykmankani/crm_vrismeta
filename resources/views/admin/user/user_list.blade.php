@@ -61,8 +61,9 @@
                                                             <a href="#" class="" data-bs-toggle="dropdown"
                                                                 aria-expanded="false"><i
                                                                     class="bi bi-three-dots-vertical"></i></a>
-                                                            @can('user.delete')
-                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                            {{-- @can('user.delete')
+
                                                                     <div class="dropdown-item">
                                                                         <form action="{{ route('user_delete') }}" method="post"
                                                                             onsubmit="return confirm('Are you sure you want to delete this user?')">
@@ -73,7 +74,7 @@
                                                                                 class="btn btn-outline-* btn-sm">
                                                                         </form>
                                                                     </div>
-                                                                @endcan
+                                                                @endcan --}}
                                                                 @can('user.update')
                                                                     <div class="dropdown-item">
                                                                         <form action="{{ route('user_edit') }}" method="post">

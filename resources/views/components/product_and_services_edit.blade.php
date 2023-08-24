@@ -46,6 +46,7 @@
                  <span style="color: black" class="input-group-text" id="basic-addon3">{{ $service_all[$x]->product }}
                      Service</span>
              </div>
+
              <select id="services" class="form-control" required  style="color:#000">
                  <option selected disabled>Select Product</option>
                  @foreach (explode(', ', $service_all[$x]->options) as $key => $value)

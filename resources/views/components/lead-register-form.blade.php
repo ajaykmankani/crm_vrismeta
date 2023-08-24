@@ -20,7 +20,8 @@
             <div class=" col-3">
                 <div class="input-group">
                     <label class="input-group-text">Unique ID</label>
-                    <input readonly type="text" class="form-control" name="unique_id" value="{{ Str::random(10) }}" id="">
+                    <input readonly type="text" class="form-control" name="unique_id"
+                        value="vris{{ rand(000000, 999999) }}" id="">
                 </div>
             </div>
             <div class=" col-3">
@@ -373,6 +374,21 @@
         var selectElement = document.getElementById('call_dispose');
         var selectedValue = selectElement.value;
 
+        var passFailElement = document.getElementById('pass-fail');
+    var creditCheckRadioButtons = document.querySelectorAll('[name="credit_check"]');
+
+    if (selectedValue === 'Credit Check Done') {
+        passFailElement.classList.remove('d-none'); // Show the element
+        for (var i = 0; i < creditCheckRadioButtons.length; i++) {
+            creditCheckRadioButtons[i].required = true;
+        }
+    } else {
+        passFailElement.classList.add('d-none');    // Hide the element
+        for (var i = 0; i < creditCheckRadioButtons.length; i++) {
+            creditCheckRadioButtons[i].required = false;
+        }
+    }
+
         if (selectedValue === '' || selectedValue === 'Call Dispose') {
             alert('Please select a Call Dispose before submitting the form.');
             return false;
@@ -397,10 +413,15 @@
             'address_2',
             'city',
             'state',
-            'zip',
+            'zip_code',
             'current_service_provider',
             'current_service',
-            'current_issue'
+            'current_issue',
+            'security_passcode',
+            'security_question',
+            'security_answer',
+            'creditCheck_mode',
+            'mode_of_cc'
         ];
 
         // Check if the selected option is 'Run Credit Check'

@@ -117,7 +117,7 @@ class LeadController extends Controller
             $sale->comment = $request->comment;
             if ($request->product != null) {
                 $sale->product = http_build_query($request->product, '', ', ');
-            } elseif ($request->service != null) {
+
                 $sale->service = http_build_query($request->service, '', ', ');
             }
             $sale->order_confirmation_number = $request->order_confirmation_number;
@@ -172,7 +172,7 @@ class LeadController extends Controller
             $lead->security_answer = $request->security_answer;
            if ($request->product != null) {
                 $lead->product = http_build_query($request->product, '', ', ');
-            } elseif ($request->service != null) {
+
                 $lead->service = http_build_query($request->service, '', ', ');
             }
             $lead->comment = $request->comment;
@@ -335,7 +335,7 @@ class LeadController extends Controller
             $lead->security_answer = $request->security_answer;
             if ($request->product != null) {
                 $lead->product = http_build_query($request->product, '', ', ');
-            } elseif ($request->service != null) {
+
                 $lead->service = http_build_query($request->service, '', ', ');
             }
             $lead->comment = $request->comment;
