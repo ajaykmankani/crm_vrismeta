@@ -62,7 +62,7 @@ function form_textarea($setting, $name, $title,  $variables=''){
                         <div class="card-body">
                             <h4>Site Settings</h4>
                             <h6 class="font-weight-light">Settings</h6>
-
+@livewire('testing-component')
                             <ol>
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
@@ -73,19 +73,15 @@ function form_textarea($setting, $name, $title,  $variables=''){
                                 @csrf<div class="row">
 
 
-                                    {{ form_text($setting, 'company_name', 'Company Name') }}
+
                                     <label for="">Company Logo</label>
                                     <a href="{{ asset($setting->company_logo) }}" target="_blank">
                                         <img src="{{ asset($setting->company_logo) }}" style="width: 100px" />
                                     </a>
                                     {{ form_text($setting, 'company_logo', 'Company Logo', 'file') }}
 
-                                    {{ form_text($setting, 'company_url', 'Company Url', 'url') }}
-                                    {{ form_text($setting, 'company_contact_phone', 'Contact Number', 'phone') }}
-                                    {{ form_textarea($setting, 'company_description', 'Company Description') }}
-                                    {{ form_text($setting, 'company_keywords', 'Company Keywords (Separated by ,)') }}
-                                    {{ form_text($setting, 'company_contact_email', 'Company Email') }}
-                                    {{ form_text($setting, 'company_contact_url', 'Company Contact Url', 'url') }}
+
+
                                     <label for="">Company Letter Head</label>
                                     <a href="{{ asset($setting->letter_head) }}" target="_blank">
                                         <img src="{{ asset($setting->letter_head) }}" style="width: 100px" />
